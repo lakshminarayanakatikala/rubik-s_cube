@@ -1,4 +1,3 @@
-// script.js
 
 const FACE_COLORS = ['w', 'r', 'b', 'o', 'g', 'y'];
 const FACE_NAMES = ['U', 'R', 'F', 'D', 'L', 'B'];
@@ -106,7 +105,6 @@ function render() {
   const navControls = document.getElementById('nav-controls');
   navControls.style.display = solutionSteps.length > 0 ? 'flex' : 'none';
 
-  // Show move list
   const moveList = document.getElementById('move-list');
   if (solutionSteps.length > 0) {
     moveList.innerHTML = solutionSteps.map((step, i) =>
@@ -177,21 +175,18 @@ function manualMove(move) {
 }
 
 document.addEventListener('keydown', function(e) {
-  // Ignore if focus is on an input or select
   if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
   const key = e.key.toUpperCase();
   let move = null;
 
-  // Support F, R, U, L, B, D and their primes with Shift or '
   if ("FRULBD".includes(key)) {
     move = key;
     if (e.shiftKey) move += "'";
   } else if (["F", "R", "U", "L", "B", "D"].includes(key[0]) && e.key.length === 2 && e.key[1] === "'") {
     move = key;
   } else if (e.key === "'") {
-    // If user presses ' after a move key, treat as prime
-    // Not implemented for simplicity
+
   }
 
   if (move) {

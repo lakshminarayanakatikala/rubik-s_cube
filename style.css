@@ -1,4 +1,3 @@
-/* Reset and base styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -12,16 +11,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center; 
 }
 
 #cube-svg {
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto 24px auto;
+  max-width: 350px;
+  margin: 0 auto; 
+  box-sizing: border-box;
+  overflow-x: auto;
   display: block;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px #0006;
-  padding: 16px;
+}
+
+@media (min-width: 400px) {
+  #cube-svg {
+    max-width: 98vw;
+  }
 }
 
 #move-display {
@@ -59,7 +64,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-
+#auto-play{
+    background-color: red;
+}
 button, .btn {
   background: #2196f3;
   color: #fff;
@@ -90,9 +97,9 @@ input[type="range"], #speed {
   margin: 18px 0;
   padding: 10px 0;
   box-shadow: 0 2px 8px #0002;
-  overflow-y: auto; /* Add vertical scrolling */
+  overflow-y: auto; 
   font-size: 0.98rem;
-  max-height: 180px; /* Set a fixed height */
+  max-height: 180px; 
 }
 .move-step {
   padding: 6px 18px;
@@ -112,6 +119,7 @@ input[type="range"], #speed {
   }
   #cube-svg, #progress-bar, #move-list {
     max-width: 98vw;
+    margin: 0 auto; 
   }
   #nav-controls {
     flex-direction: column;
@@ -122,11 +130,12 @@ input[type="range"], #speed {
 @media (max-width: 480px) {
   #cube-svg, #progress-bar, #move-list {
     max-width: 100vw;
-    padding: 0;
+    margin: 0 auto; 
+    padding: 0;     
   }
-  button, .btn {
+  #cube-svg {
     width: 100%;
-    font-size: 1.1rem;
-    padding: 12px 0;
+    max-width: 680px;
+    margin: 0 auto; 
   }
 }
