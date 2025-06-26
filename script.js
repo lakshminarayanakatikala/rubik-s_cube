@@ -1,4 +1,3 @@
-
 const FACE_COLORS = ['w', 'r', 'b', 'o', 'g', 'y'];
 const FACE_NAMES = ['U', 'R', 'F', 'D', 'L', 'B'];
 
@@ -177,16 +176,14 @@ function manualMove(move) {
 document.addEventListener('keydown', function(e) {
   if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-  const key = e.key.toUpperCase();
+  const key = e.key;
   let move = null;
 
-  if ("FRULBD".includes(key)) {
-    move = key;
-    if (e.shiftKey) move += "'";
-  } else if (["F", "R", "U", "L", "B", "D"].includes(key[0]) && e.key.length === 2 && e.key[1] === "'") {
-    move = key;
-  } else if (e.key === "'") {
-
+  // Only process single character keys for moves
+  if ("frulbdFRULBD".includes(key)) {
+    const upper = key.toUpperCase();
+    // Lowercase = normal, Uppercase = prime
+    move = upper + (key === upper ? "'" : "");
   }
 
   if (move) {
