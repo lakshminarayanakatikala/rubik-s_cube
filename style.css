@@ -1,0 +1,132 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+#app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cube-svg {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 24px auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #0006;
+  padding: 16px;
+}
+
+#move-display {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 12px 0 4px 0;
+  letter-spacing: 1px;
+}
+
+#step-display {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #aaa;
+}
+
+#progress-bar {
+  width: 100%;
+  max-width: 480px;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+#progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #2196f3);
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+#nav-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button, .btn {
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px #0002;
+}
+button:hover, .btn:hover {
+  background: #1769aa;
+  transform: translateY(-2px) scale(1.04);
+}
+
+input[type="range"], #speed {
+  width: 120px;
+  margin-left: 8px;
+  accent-color: #2196f3;
+}
+
+#move-list {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  margin: 18px 0;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px #0002;
+  overflow-y: auto; /* Add vertical scrolling */
+  font-size: 0.98rem;
+  max-height: 180px; /* Set a fixed height */
+}
+.move-step {
+  padding: 6px 18px;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.move-step.active {
+  border-left: 4px solid #2196f3;
+  font-weight: 600;
+  background-color: #2196f3;
+}
+
+/* Responsive layout */
+@media (max-width: 700px) {
+  #app-container {
+    padding: 8px 2vw;
+  }
+  #cube-svg, #progress-bar, #move-list {
+    max-width: 98vw;
+  }
+  #nav-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  #cube-svg, #progress-bar, #move-list {
+    max-width: 100vw;
+    padding: 0;
+  }
+  button, .btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+}

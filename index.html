@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rubik's Cube Solver</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app-container">
+    <h1 style="margin-bottom:18px;">Rubik's Cube Solver</h1>
+
+    <div id="cube-svg"></div>
+    <div id="move-display">Ready</div>
+    <div id="step-display"></div>
+    <div id="progress-bar"><div id="progress"></div></div>
+
+    <div id="main-controls" style="margin-bottom:18px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+      <button onclick="cycleScramble()">Scramble</button>
+      <button onclick="startSolve()">Solve Cube</button>
+      <button onclick="resetCube()">Reset</button>
+    </div>
+
+    <div id="manual-controls" style="margin-bottom:18px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">
+      <button onclick="manualMove('F')">F</button>
+      <button onclick="manualMove('F\'')">F'</button>
+      <button onclick="manualMove('R')">R</button>
+      <button onclick="manualMove('R\'')">R'</button>
+      <button onclick="manualMove('U')">U</button>
+      <button onclick="manualMove('U\'')">U'</button>
+      <button onclick="manualMove('L')">L</button>
+      <button onclick="manualMove('L\'')">L'</button>
+      <button onclick="manualMove('B')">B</button>
+      <button onclick="manualMove('B\'')">B'</button>
+      <button onclick="manualMove('D')">D</button>
+      <button onclick="manualMove('D\'')">D'</button>
+    </div>
+
+    <div id="nav-controls" style="display:none; margin-bottom:18px; flex-wrap:wrap; gap:10px; justify-content:center;">
+      <button onclick="prevStep()">Previous</button>
+      <button id="auto-play" onclick="toggleAutoPlay()">Auto Play</button>
+      <select id="speed" style="padding:6px 10px; border-radius:6px; border:1px solid #333;">
+        <option value="2000">Slow</option>
+        <option value="1000" selected>Normal</option>
+        <option value="500">Fast</option>
+        <option value="200">Very Fast</option>
+      </select>
+      <button onclick="nextStep()">Next</button>
+    </div>
+
+    <div id="move-list"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
